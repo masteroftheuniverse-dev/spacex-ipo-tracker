@@ -1,0 +1,6 @@
+node_modules/
+.env
+*.log
+pipeline/state/
+pipeline/logs/
+.DS_Store
