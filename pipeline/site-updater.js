@@ -32,20 +32,14 @@ function deployToNetlify(htmlChanged) {
   logToFeed('persephone','task','🚀 Deploying updated spacexipotracker.com...');
   
   try {
-    // Check if netlify CLI is available
-    try {
-      execSync('which netlify', { stdio: 'ignore' });
-    } catch {
-      return { success: true, message: 'HTML updated but Netlify CLI not available', deployed: false };
-    }
-
-    // Run netlify deploy
-    execSync(`cd ${PROJECT_ROOT} && netlify deploy --dir=. --prod`, {
-      stdio: 'inherit'
+    // Deploy via git push → Cloudflare Pages auto-deploys
+    execSync(`cd ${PROJECT_ROOT} && git add -A && git diff --cached --quiet || git commit -m "Auto-deploy: pipeline update $(date +%Y-%m-%d)" && git push origin main`, {
+      stdio: 'inherit',
+      env: { ...process.env, GIT_TERMINAL_PROMPT: '0' }
     });
 
-    logToFeed('persephone','completed','✅ spacexipotracker.com updated and live');
-    return { success: true, message: 'Deployed to Netlify', deployed: true };
+    logToFeed('persephone','completed','✅ spacexipotracker.com updated and live (Cloudflare Pages)');
+    return { success: true, message: 'Pushed to GitHub → Cloudflare Pages', deployed: true };
   } catch (error) {
     return { success: false, message: `Deployment failed: ${error.message}`, deployed: false };
   }
