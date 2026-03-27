@@ -1,0 +1,16 @@
+{
+  "name": "spacex-ipo-tracker",
+  "version": "1.0.0",
+  "description": "A fully SEO-optimized static website tracking SpaceX's path to IPO in 2026. Built with pure HTML, CSS, and JavaScript—no frameworks, no external dependencies.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

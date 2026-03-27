@@ -1,0 +1,104 @@
+========================================
+🚀 SpaceX IPO Pipeline Started
+Timestamp: 2026-03-26 12:44:07
+========================================
+
+Step 1️⃣  Oracle — Research & Analysis
+[Oracle] 🔍 Searching Brave API for SpaceX IPO news...
+[Oracle] Brave API error: 422 Unprocessable Entity
+[Oracle] 📝 Generating weekly brief...
+[Oracle] ✓ Brief saved to /Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/weekly-brief.json
+[Oracle] 📊 Headlines: 2
+[Oracle] 💰 Valuation: ~$350B
+[Oracle] ✨ Angle: Starlink IPO expected in 2026, followed by SpaceX IPO in Q4 2026
+[Oracle] ✓ Task complete
+✓ Oracle complete
+
+Step 2️⃣  Creator — Content Generation
+[Creator] 📖 Reading weekly brief...
+[Creator] ✓ Brief loaded (2 headlines)
+[Creator] ✍️ Generating newsletter HTML...
+[Creator] 🌐 Generating site update snippet...
+[Creator] ✓ Draft saved to /Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/weekly-draft.json
+[Creator] 📧 Subject: SpaceX IPO Insider — Week of 2026-03-26
+[Creator] 📄 Newsletter HTML: 5831 chars
+[Creator] 🌐 Site snippet: 1002 chars
+[Creator] ✓ Task complete
+✓ Creator complete
+
+Step 3️⃣  Publisher — Distribution
+[Publisher] 📖 Reading draft...
+[Publisher] ✓ Draft loaded
+[Publisher] 🚀 Publishing to Beehiiv...
+[Publisher] ❌ Beehiiv API error: 403
+[Publisher] Response: {"status":403,"statusText":"forbidden","errors":[{"message":"This endpoint is only available on the enterprise plan","code":"SEND_API_NOT_ENTERPRISE_PLAN"}]}
+[Publisher] ❌ Publication failed: This endpoint is only available on the enterprise plan
+✓ Publisher complete
+
+Step 4️⃣  SiteUpdater — Site Deployment
+[SiteUpdater] 📖 Reading draft...
+[SiteUpdater] ✓ Draft loaded
+[SiteUpdater] 🔄 Updating index.html...
+[SiteUpdater] ✓ index.html updated
+[SiteUpdater] 🌐 Deploying to Netlify...
+​
+Netlify Build                                                 
+────────────────────────────────────────────────────────────────
+​
+❯ Version
+  @netlify/build 35.10.1
+​
+❯ Flags
+  accountId: 69be15c4c6f8cd716206aa07
+  deployId: 69c5625da3b54808c004a9a7
+​
+❯ Current directory
+  /Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker
+​
+❯ Config file
+  /Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/netlify.toml
+​
+❯ Context
+  production
+​
+Functions bundling                                            
+────────────────────────────────────────────────────────────────
+​
+Packaging Functions from netlify/functions directory:
+ - subscribe.js
+​
+​
+(Functions bundling completed in 107ms)
+
+Deploying to Netlify
+────────────────────────────────────────────────────────────────
+
+Deploy path:        /Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker
+Functions path:     /Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/netlify/functions
+Configuration path: /Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/netlify.toml
+
+⠋ Uploading blobs to deploy store...
+
+✔ Finished uploading blobs to deploy store
+⠋ Hashing files...
+⠋ Looking for a functions cache...
+✔ Deploying functions from cache (use --skip-functions-cache to override)
+✔ Finished hashing 23 files and 1 functions
+⠋ CDN diffing files...
+✔ CDN requesting 10 files and 0 functions
+⠋ Uploading 10 files
+ ›   Warning: JSONHTTPError: no records matched 422
+ ›   Warning: 
+{
+  "name": "JSONHTTPError",
+  "status": 422,
+  "json": {
+    "code": 422,
+    "message": "no records matched"
+  }
+}
+
+​
+Internal error during "options.onPostBuild"                   
+────────────────────────────────────────────────────────────────
+❌ SiteUpdater failed

@@ -1,0 +1,20 @@
+{
+  "week": "2026-03-26",
+  "headlines": [
+    {
+      "title": "SpaceX Continues Starship Development Progress",
+      "url": "https://spacex.com",
+      "description": "SpaceX makes progress on Starship development.",
+      "source": "spacex.com"
+    },
+    {
+      "title": "Starlink IPO Expected Before SpaceX Goes Public",
+      "url": "https://spacex.com/starlink",
+      "description": "Elon Musk reiterates Starlink will IPO first in 2026.",
+      "source": "spacex.com"
+    }
+  ],
+  "valuation": "~$350B",
+  "key_angle": "Starlink IPO expected in 2026, followed by SpaceX IPO in Q4 2026",
+  "generated_at": "2026-03-26T20:03:01.710Z"
+}

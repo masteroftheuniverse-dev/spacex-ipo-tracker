@@ -1,0 +1,30 @@
+functionsDirectory = "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/netlify/functions"
+functionsDirectoryOrigin = "config-v1"
+plugins = []
+headers = []
+redirects = []
+
+[build]
+publish = "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker"
+publishOrigin = "default"
+base = "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker"
+functions = "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/netlify/functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]
+node_bundler = "esbuild"

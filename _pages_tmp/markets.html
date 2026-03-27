@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SpaceX IPO prediction market odds from Kalshi and Polymarket. Live odds updated every 5 minutes.">
+    <meta name="keywords" content="SpaceX IPO odds, SpaceX IPO prediction market, Kalshi SpaceX, Polymarket SpaceX, SpaceX IPO probability">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://spacex-ipo-tracker.com/markets.html">
+    
+    <meta property="og:title" content="SpaceX IPO Prediction Market Odds — Kalshi & Polymarket">
+    <meta property="og:description" content="Live prediction market odds on when SpaceX will IPO. Updated every 5 minutes.">
+    <meta property="og:url" content="https://spacex-ipo-tracker.com/markets.html">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5604388262387293" crossorigin="anonymous"></script>
+    
+    <title>SpaceX IPO Prediction Market Odds — SpaceX IPO Tracker 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <nav class="site-nav">
+        <div class="container site-nav-inner">
+            <a href="/" class="site-nav-brand">🚀 SpaceX IPO Tracker</a>
+            <div class="site-nav-links">
+                <a href="/">Home</a>
+                <a href="/news.html">News &amp; Analysis</a>
+                <a href="/invest.html">How to Invest</a>
+                <a href="/markets.html" class="active">Prediction Markets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- IPO Odds Tracker Section -->
+    <section class="prediction-section page-section-first" id="odds-tracker">
+        <div class="container">
+            <h2>📊 IPO Probability Tracker — Week-Over-Week</h2>
+            <p class="section-subtitle">How prediction markets are pricing SpaceX IPO probability. Updated weekly.</p>
+
+            <!-- IPO Probability Chart -->
+            <div style="background:#0d1520; border:1px solid rgba(0,217,255,0.3); border-radius:12px; padding:24px; margin:24px 0;">
+                <h3 style="color:#00d9ff; font-size:17px; margin:0 0 4px 0;">📈 IPO Probability — Historical Trend</h3>
+                <p style="color:#888; font-size:13px; margin:0 0 20px 0;">Kalshi prediction market prices over time</p>
+                <canvas id="ipoProbabilityChart" height="120"></canvas>
+            </div>
+
+            <script>
+            (function() {
+                var ctx = document.getElementById('ipoProbabilityChart').getContext('2d');
+                /* IPO-CHART-DATA-START */
+                var chartLabels = ["Mar 5", "Mar 12", "Mar 19", "Mar 26"];
+                var jun2026Data = [29, 32, 37, 45];
+                var dec2026Data = [55, 58, 62, 68];
+                var jun2027Data = [70, 73, 78, 82];
+                /* IPO-CHART-DATA-END */
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: chartLabels,
+                        datasets: [
+                            {
+                                label: 'IPO Before Jun 2026',
+                                data: jun2026Data,
+                                borderColor: '#00d9ff',
+                                backgroundColor: 'rgba(0,217,255,0.08)',
+                                pointBackgroundColor: '#00d9ff',
+                                pointRadius: 4,
+                                pointHoverRadius: 6,
+                                tension: 0.4,
+                                fill: true
+                            },
+                            {
+                                label: 'IPO Before Dec 2026',
+                                data: dec2026Data,
+                                borderColor: '#00ff88',
+                                backgroundColor: 'rgba(0,255,136,0.08)',
+                                pointBackgroundColor: '#00ff88',
+                                pointRadius: 4,
+                                pointHoverRadius: 6,
+                                tension: 0.4,
+                                fill: true
+                            },
+                            {
+                                label: 'IPO Before Jun 2027',
+                                data: jun2027Data,
+                                borderColor: '#ff9500',
+                                backgroundColor: 'rgba(255,149,0,0.08)',
+                                pointBackgroundColor: '#ff9500',
+                                pointRadius: 4,
+                                pointHoverRadius: 6,
+                                tension: 0.4,
+                                fill: true
+                            }
+                        ]
+                    },
+                    options: {
+                        animation: { duration: 900, easing: 'easeInOutQuart' },
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: { color: '#ccc', font: { size: 13 }, padding: 16 }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: function(items) { return 'Week of ' + items[0].label; },
+                                    label: function(item) { return ' ' + item.dataset.label + ' — ' + item.parsed.y + '%'; }
+                                },
+                                backgroundColor: 'rgba(13,21,32,0.95)',
+                                titleColor: '#00d9ff',
+                                bodyColor: '#eee',
+                                borderColor: 'rgba(0,217,255,0.3)',
+                                borderWidth: 1
+                            }
+                        },
+                        scales: {
+                            x: {
+                                ticks: { color: '#888', font: { size: 12 } },
+                                grid: { color: 'rgba(255,255,255,0.05)' }
+                            },
+                            y: {
+                                min: 0,
+                                max: 100,
+                                ticks: {
+                                    color: '#888',
+                                    font: { size: 12 },
+                                    callback: function(v) { return v + '%'; }
+                                },
+                                grid: { color: 'rgba(255,255,255,0.05)' }
+                            }
+                        }
+                    }
+                });
+            })();
+            </script>
+
+            <div style="overflow-x:auto; margin: 24px 0;">
+                <table style="width:100%; border-collapse:collapse; font-size:15px; background:rgba(255,255,255,0.03); border-radius:10px; overflow:hidden;">
+                    <thead>
+                        <tr style="background:rgba(0,217,255,0.12); text-align:left;">
+                            <th style="padding:12px 16px; color:#00d9ff; font-weight:600; border-bottom:1px solid rgba(0,217,255,0.2);">Date</th>
+                            <th style="padding:12px 16px; color:#00d9ff; font-weight:600; border-bottom:1px solid rgba(0,217,255,0.2);">Market</th>
+                            <th style="padding:12px 16px; color:#00d9ff; font-weight:600; border-bottom:1px solid rgba(0,217,255,0.2);">This Week</th>
+                            <th style="padding:12px 16px; color:#00d9ff; font-weight:600; border-bottom:1px solid rgba(0,217,255,0.2);">Last Week</th>
+                            <th style="padding:12px 16px; color:#00d9ff; font-weight:600; border-bottom:1px solid rgba(0,217,255,0.2);">Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<!-- IPO-ODDS-TRACKER-START -->
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <td style="padding:12px 16px; color:#aaa;">Mar 26, 2026</td>
+                            <td style="padding:12px 16px; color:#eee; font-size:13px;">IPO Before June 2026</td>
+                            <td style="padding:12px 16px; color:#eee; font-weight:600;">45%</td>
+                            <td style="padding:12px 16px; color:#aaa;">37%</td>
+                            <td style="padding:12px 16px; color:#30d158; font-weight:600;">+8% 📈</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <td style="padding:12px 16px; color:#aaa;">Mar 26, 2026</td>
+                            <td style="padding:12px 16px; color:#eee; font-size:13px;">IPO Before December 2026</td>
+                            <td style="padding:12px 16px; color:#eee; font-weight:600;">68%</td>
+                            <td style="padding:12px 16px; color:#aaa;">62%</td>
+                            <td style="padding:12px 16px; color:#30d158; font-weight:600;">+6% 📈</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:12px 16px; color:#aaa;">Mar 26, 2026</td>
+                            <td style="padding:12px 16px; color:#eee; font-size:13px;">IPO Before June 2027</td>
+                            <td style="padding:12px 16px; color:#eee; font-weight:600;">82%</td>
+                            <td style="padding:12px 16px; color:#aaa;">78%</td>
+                            <td style="padding:12px 16px; color:#30d158; font-weight:600;">+4% 📈</td>
+                        </tr>
+<!-- IPO-ODDS-TRACKER-END -->
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="font-size:13px; color:#888; margin-top:8px;">
+                Source: Kalshi · <a href='https://kalshi.com/sign-up/?referral=355080fe-2223-4a44-bb2a-034e656be486' target='_blank' rel='sponsored noopener' style='color:#00d9ff;'>Trade these markets on Kalshi ★</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Prediction Markets Section -->
+    <section class="prediction-section" id="prediction-markets">
+        <div class="container">
+            <h2>🎯 Prediction Market Odds</h2>
+            <p class="section-subtitle">What are traders betting on? Live odds from Kalshi and Polymarket — updated every 5 minutes. <em>Want to trade these markets?</em> <a href="https://kalshi.com/sign-up/?referral=355080fe-2223-4a44-bb2a-034e656be486" target="_blank" rel="sponsored noopener" class="inline-aff">Join Kalshi ★</a> · <a href="https://polymarket.com/refer/plebworm" target="_blank" rel="sponsored noopener" class="inline-aff">Join Polymarket ★</a></p>
+
+            <div id="prediction-widget" class="prediction-grid">
+                <div class="prediction-loading">⏳ Loading live odds...</div>
+            </div>
+
+            <div class="prediction-cta">
+                <p>Trade these markets yourself:</p>
+                <a href="https://kalshi.com/sign-up/?referral=355080fe-2223-4a44-bb2a-034e656be486" target="_blank" rel="sponsored noopener" class="cta-btn">Kalshi — $10 Signup Bonus ★</a>
+                <a href="https://polymarket.com/refer/plebworm" target="_blank" rel="sponsored noopener" class="cta-btn">Polymarket — $10 Per Referral ★</a>
+                <p class="micro-note">★ Affiliate links. We may earn a commission. Trading prediction markets involves risk. <a href="#affiliate-disclaimer">See disclaimer.</a></p>
+            </div>
+
+    <!-- Affiliate Banner -->
+    <section class="affiliate-banner-section page-section-first">
+        <div class="container">
+            <div class="affiliate-banner">
+                <span class="affiliate-banner-text">📈 Trade the SpaceX IPO odds right now on Kalshi — the only regulated prediction market in the US.</span>
+                <a href="https://kalshi.com/sign-up/?referral=355080fe-2223-4a44-bb2a-034e656be486" target="_blank" class="affiliate-banner-btn">Trade on Kalshi ★</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture & Share Section -->
+    <section class="email-section">
+        <div class="container">
+            <h2>🚨 Get Alerted the Second SpaceX Files Their S-1</h2>
+            <p>Be first — before it hits CNBC. Enter your email and we'll notify you instantly when SpaceX officially announces their IPO.</p>
+            
+            <form class="email-form" id="notifyForm">
+                <input type="email" id="notifyEmail" placeholder="your@email.com" required>
+                <button type="submit" id="notifyBtn">Alert Me When It Happens →</button>
+            </form>
+            <p class="form-note" id="formNote">We also send weekly IPO odds updates. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- Share Buttons -->
+    <section class="share-section">
+        <div class="container">
+            <h3>Share This Page</h3>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?url=https://spacexipotracker.com/markets.html&text=Track+the+SpaceX+IPO+%F0%9F%9A%80" target="_blank" class="share-btn twitter">𝕏 Twitter</a>
+                <a href="https://www.reddit.com/submit?url=https://spacexipotracker.com/markets.html&title=SpaceX+IPO+Tracker" target="_blank" class="share-btn reddit">Reddit</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://spacexipotracker.com/markets.html" target="_blank" class="share-btn facebook">Facebook</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://spacexipotracker.com/markets.html" target="_blank" class="share-btn linkedin">LinkedIn</a>
+                <a href="https://api.whatsapp.com/send?text=Track+the+SpaceX+IPO+%F0%9F%9A%80+https://spacexipotracker.com/markets.html" target="_blank" class="share-btn whatsapp">WhatsApp</a>
+                <a href="https://t.me/share/url?url=https://spacexipotracker.com/markets.html&text=SpaceX+IPO+Tracker" target="_blank" class="share-btn telegram">Telegram</a>
+                <button onclick="navigator.clipboard.writeText('https://spacexipotracker.com/markets.html');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',2000)" class="share-btn copy">Copy Link</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 SpaceX IPO Tracker. All rights reserved.</p>
+            <p class="disclaimer">
+                <strong>Disclaimer:</strong> This site is for informational purposes only and does not constitute financial advice. SpaceX IPO date, valuation, and share price estimates are speculative projections. Past performance and projections do not guarantee future results. Consult a financial advisor before making investment decisions. This site is not affiliated with SpaceX, Tesla, or Elon Musk.
+            </p>
+            <!-- AFFILIATE-DISCLAIMER -->
+            <p class="disclaimer" id="affiliate-disclaimer">
+                <strong>Affiliate Disclosure:</strong> Some links on this site are affiliate links, marked with ★. If you click and sign up or make a purchase, we may earn a commission at no additional cost to you. We only recommend platforms we believe are reputable and relevant to our readers. This disclosure is made in accordance with the FTC's guidelines on endorsements and testimonials, and complies with applicable advertising standards.
+            </p>
+            <p class="footer-links">
+                <a href="/privacy">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="mailto:Rus.Clawdbot@gmail.com">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+<script>
+  document.getElementById('notifyForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('notifyEmail').value;
+    const btn = document.getElementById('notifyBtn');
+    const note = document.getElementById('formNote');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    function onSuccess() {
+      btn.textContent = '✓ You\'re on the list!';
+      btn.style.background = '#30d158';
+      note.textContent = 'We\'ll notify you the moment SpaceX announces their IPO date.';
+      document.getElementById('notifyEmail').value = '';
+    }
+    function onError() {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+      note.textContent = 'Something went wrong. Please try again.';
+      note.style.color = '#ff6b6b';
+    }
+
+    try {
+      const res = await fetch('/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) { onSuccess(); return; }
+      throw new Error(data.error || 'Netlify function failed');
+    } catch(primaryErr) {
+      console.warn('Primary subscribe failed, using fallback:', primaryErr.message);
+    }
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '51f48821-df57-473a-89ff-9b263ac6c5a5',
+          subject: 'SpaceX IPO Tracker — New Subscriber',
+          from_name: 'SpaceX IPO Tracker',
+          email: email,
+          message: 'New subscriber: ' + email
+        })
+      });
+      const data = await res.json();
+      if (data.success) { onSuccess(); } else { throw new Error('Web3Forms failed'); }
+    } catch(fallbackErr) { onError(); }
+  });
+</script>
+</body>
+</html>
