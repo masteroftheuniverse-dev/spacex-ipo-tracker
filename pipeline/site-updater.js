@@ -32,8 +32,8 @@ function deployToNetlify(htmlChanged) {
   logToFeed('persephone','task','🚀 Deploying updated spacexipotracker.com...');
   
   try {
-    // Deploy via git push → Cloudflare Pages auto-deploys
-    execSync(`cd ${PROJECT_ROOT} && git add -A && git diff --cached --quiet || git commit -m "Auto-deploy: pipeline update $(date +%Y-%m-%d)" && git push origin main`, {
+    // Deploy via wrangler (direct, bypasses git auto-deploy which is broken)
+    execSync(`cd ${PROJECT_ROOT} && git add -A && git diff --cached --quiet || git commit -m "Auto-deploy: pipeline update $(date +%Y-%m-%d)" && git push origin main && CLOUDFLARE_API_TOKEN=cfut_T34WybWPWiZfErXzkYYbT3XIU8C1hGw3L36gXko895917adf npx wrangler pages deploy . --project-name spacex-ipo-tracker`, {
       stdio: 'inherit',
       env: { ...process.env, GIT_TERMINAL_PROMPT: '0' }
     });
