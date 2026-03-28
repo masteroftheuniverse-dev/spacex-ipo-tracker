@@ -5,6 +5,7 @@ export async function onRequest(context) {
   <url><loc>https://spacexipotracker.com/markets.html</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://spacexipotracker.com/news.html</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://spacexipotracker.com/invest.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://spacexipotracker.com/analysis/2026-03-27-s1-filing-imminent.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://spacexipotracker.com/analysis/2026-03-27-starlink-10k-satellites.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://spacexipotracker.com/analysis/2026-03-26-valuation.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://spacexipotracker.com/analysis/2026-03-25-starlink-ipo.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
