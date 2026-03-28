@@ -144,3 +144,4 @@ checkSECFilings().then(r => {
     process.exit(0);
   }
 });
+} // end if
