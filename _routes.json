@@ -1,5 +1,5 @@
 {
   "version": 1,
   "include": ["/subscribe", "/prediction-markets"],
-  "exclude": []
+  "exclude": ["/sitemap.xml", "/ads.txt", "/*.png", "/*.css", "/*.js"]
 }
