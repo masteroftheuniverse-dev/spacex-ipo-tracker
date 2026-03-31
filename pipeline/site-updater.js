@@ -12,6 +12,7 @@ const DRAFT_FILE = path.join(STATE_DIR, 'weekly-draft.json');
 const ANALYSIS_FILE = path.join(STATE_DIR, 'daily-analysis.json');
 const PROJECT_ROOT = path.dirname(__dirname);
 const INDEX_FILE = path.join(PROJECT_ROOT, 'index.html');
+const NEWS_FILE = path.join(PROJECT_ROOT, 'news.html');
 
 function readDraft() {
   if (!fs.existsSync(DRAFT_FILE)) {
@@ -181,9 +182,19 @@ async function main() {
     const newHash = hashContent(content);
     const htmlChanged = originalHash !== newHash;
     
-    // Write once
+    // Write index.html
     if (htmlChanged) {
       fs.writeFileSync(INDEX_FILE, content);
+    }
+
+    // Also update news.html analysis cards
+    if (fs.existsSync(NEWS_FILE)) {
+      let newsContent = fs.readFileSync(NEWS_FILE, 'utf-8');
+      const newsOriginalHash = hashContent(newsContent);
+      newsContent = updateAnalysisSection(newsContent);
+      if (hashContent(newsContent) !== newsOriginalHash) {
+        fs.writeFileSync(NEWS_FILE, newsContent);
+      }
     }
     
     const deployResult = deployToNetlify(htmlChanged);
