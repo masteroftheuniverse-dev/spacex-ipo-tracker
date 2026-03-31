@@ -168,6 +168,16 @@
   .breaking-news-banner .banner-close:hover {
     color: #ffffff;
   }
+
+    .analysis-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+    .analysis-card-image { width: 100%; height: 180px; object-fit: cover; }
+    .analysis-card-content { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .analysis-card-date { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .analysis-card-tag { display: inline-block; background: rgba(243,156,18,0.15); border: 1px solid rgba(243,156,18,0.35); color: #f39c12; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; width: fit-content; }
+    .analysis-card h3 { color: #fff; font-size: 17px; font-weight: 700; line-height: 1.3; margin: 0; }
+    .analysis-card-excerpt { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6; flex: 1; }
+    .analysis-card-link { color: #f39c12; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: auto; }
+    .analysis-card-link:hover { text-decoration: underline; }
 </style>
 
 <div class="breaking-news-banner" id="breakingNewsBanner" role="alert" aria-live="polite">
@@ -259,6 +269,68 @@
 
                 <p class="persephone-disclaimer">⚠️ Not financial advice. This is an AI-generated analysis.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Analysis Articles -->
+    <section style="padding: 60px 20px; background: #0d0d18;">
+        <div class="container">
+            <h2 style="color:#fff; font-size:28px; font-weight:800; margin-bottom:8px;">📊 Latest Analysis</h2>
+            <p style="color:rgba(255,255,255,0.5); margin-bottom:32px; font-size:15px;">Updated daily — tracking every signal that moves the IPO timeline.</p>
+            <!-- NEWS-CARDS-START -->
+            <div class="news-cards-grid">
+<article class="analysis-card">
+                    <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=600&q=80" alt="Starship Progress and Its Impact on SpaceX IPO Timing" class="analysis-card-image">
+                    <div class="analysis-card-content">
+                        <span class="analysis-card-date">March 30, 2026</span>
+                        <span class="analysis-card-tag">Launch & Tech</span>
+                        <h3>Starship Progress and Its Impact on SpaceX IPO Timing</h3>
+                        <p class="analysis-card-excerpt">SpaceX's Starship development remains one of the most watched indicators for IPO readiness. Each successful launch milestone strengthens the company's...</p>
+                        <a href="/analysis/2026-03-31-launch-tech.html" class="analysis-card-link">Read Analysis →</a>
+                    </div>
+                </article>
+<article class="analysis-card">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="SpaceX IPO Watch — Today's Key Developments" class="analysis-card-image">
+                    <div class="analysis-card-content">
+                        <span class="analysis-card-date">March 29, 2026</span>
+                        <span class="analysis-card-tag">IPO Watch</span>
+                        <h3>SpaceX IPO Watch — Today's Key Developments</h3>
+                        <p class="analysis-card-excerpt">Staying ahead of the SpaceX IPO requires tracking a wide range of signals: secondary market pricing, Elon Musk statements, SEC activity, launch milest...</p>
+                        <a href="/analysis/2026-03-30-ipo-watch.html" class="analysis-card-link">Read Analysis →</a>
+                    </div>
+                </article>
+<article class="analysis-card">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="SpaceX IPO Watch — Today's Key Developments" class="analysis-card-image">
+                    <div class="analysis-card-content">
+                        <span class="analysis-card-date">March 28, 2026</span>
+                        <span class="analysis-card-tag">IPO Watch</span>
+                        <h3>SpaceX IPO Watch — Today's Key Developments</h3>
+                        <p class="analysis-card-excerpt">Staying ahead of the SpaceX IPO requires tracking a wide range of signals: secondary market pricing, Elon Musk statements, SEC activity, launch milest...</p>
+                        <a href="/analysis/2026-03-29-ipo-watch.html" class="analysis-card-link">Read Analysis →</a>
+                    </div>
+                </article>
+<article class="analysis-card">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="SpaceX Hits ~$350B — What That Means For IPO Pricing" class="analysis-card-image">
+                    <div class="analysis-card-content">
+                        <span class="analysis-card-date">March 26, 2026</span>
+                        <span class="analysis-card-tag">Valuation</span>
+                        <h3>SpaceX Hits ~$350B — What That Means For IPO Pricing</h3>
+                        <p class="analysis-card-excerpt">SpaceX's latest secondary market transactions place the company at approximately $350 billion — larger than Boeing and Lockheed Martin combined. These...</p>
+                        <a href="/analysis/2026-03-26-valuation.html" class="analysis-card-link">Read Analysis →</a>
+                    </div>
+                </article>
+<article class="analysis-card">
+                    <img src="https://images.unsplash.com/photo-1457364887197-9150188c107b?w=600&q=80" alt="Starlink IPO First: The Two-Stage Strategy That Could Make Early Investors Rich" class="analysis-card-image">
+                    <div class="analysis-card-content">
+                        <span class="analysis-card-date">March 25, 2026</span>
+                        <span class="analysis-card-tag">Starlink IPO</span>
+                        <h3>Starlink IPO First: The Two-Stage Strategy That Could Make Early Investors Rich</h3>
+                        <p class="analysis-card-excerpt">Elon Musk has been consistent on one point: Starlink IPOs before SpaceX. This isn't just sequencing — it's strategy. Starlink's recurring subscription...</p>
+                        <a href="/analysis/2026-03-25-starlink-ipo.html" class="analysis-card-link">Read Analysis →</a>
+                    </div>
+                </article>
+            </div>
+            <!-- NEWS-CARDS-END -->
         </div>
     </section>
 
