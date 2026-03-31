@@ -149,6 +149,10 @@ function updateAnalysisSection(indexContent) {
 async function main() {
   try {
     const startTime = Date.now();
+
+    // Generate any missing /analysis/*.html pages first
+    require('./generate-articles');
+
     const draft = readDraft();
     
     // Read index.html ONCE

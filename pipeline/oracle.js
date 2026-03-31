@@ -8,7 +8,7 @@ const STATE_DIR = path.join(__dirname, 'state');
 const BRIEF_FILE = path.join(STATE_DIR, 'weekly-brief.json');
 const ANALYSIS_FILE = path.join(STATE_DIR, 'daily-analysis.json');
 
-const BRAVE_API_KEY = 'BSAiXTAGiMriYnQMeNsJ5ib1eA4b_vb';
+const BRAVE_API_KEY = 'BSAtTvT-T2V1D58nKnA-k3HIHmyIV_q';
 const BRAVE_API_URL = 'https://api.search.brave.com/res/v1/web/search';
 const BRAVE_CACHE_FILE = path.join(STATE_DIR, 'brave-cache.json');
 const CACHE_MAX_AGE = 6 * 60 * 60 * 1000; // 6 hours

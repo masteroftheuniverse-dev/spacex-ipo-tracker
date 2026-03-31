@@ -6,6 +6,108 @@
       "status": 403,
       "error": "This endpoint is only available on the enterprise plan",
       "timestamp": "2026-03-26T16:44:08.981Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-29",
+      "success": false,
+      "status": 403,
+      "error": "This endpoint is only available on the enterprise plan",
+      "timestamp": "2026-03-29T15:02:19.748Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-29",
+      "success": false,
+      "status": 403,
+      "error": "This endpoint is only available on the enterprise plan",
+      "timestamp": "2026-03-29T15:04:09.768Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-29",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-29T15:04:46.101Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-29",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-29T15:05:22.307Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-29",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-29T16:00:01.269Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-29",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-29T20:00:01.670Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-30",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-30T00:00:02.158Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-30",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-30T04:00:00.891Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-30",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-30T08:00:02.171Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-30",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-30T12:00:01.272Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-30",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-30T16:00:03.250Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-30",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-30T20:00:00.956Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-03-31",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-03-31T00:00:04.414Z"
     }
   ]
 }

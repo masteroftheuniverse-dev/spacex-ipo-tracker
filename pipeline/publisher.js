@@ -35,56 +35,27 @@ function appendToLog(result) {
 }
 
 async function publishToBeehiiv(draft, dryRun) {
-  logToFeed('publisher','task',`📣 Sending newsletter to Beehiiv subscribers${dryRun ? ' (dry run)' : ''}`);
-
-  const payload = {
-    title: draft.subject,
-    subtitle: `SpaceX IPO weekly update from tracker`,
-    content: {
-      free: {
-        web: draft.newsletter_html,
-        email: draft.newsletter_html
-      }
-    },
-    status: 'confirmed',
-    send_at: null
-  };
+  // NOTE: Beehiiv POST /posts API requires Enterprise plan.
+  // Workaround: write a ready-to-paste HTML file and log it.
+  // Russell can log into beehiiv.com, create a new post, and paste the HTML.
+  const DRAFT_HTML_PATH = path.join(STATE_DIR, 'beehiiv-ready-draft.html');
+  
+  const html = draft.newsletter_html || `<h1>${draft.subject}</h1><p>Weekly SpaceX IPO update ready.</p>`;
+  fs.writeFileSync(DRAFT_HTML_PATH, html);
+  
+  logToFeed('publisher','task',`📣 Beehiiv draft written to ${DRAFT_HTML_PATH}${dryRun ? ' (dry run)' : ''} — paste into beehiiv.com to send`);
 
   if (dryRun) {
-    return { success: true, dry_run: true, message: 'Dry run completed successfully' };
+    return { success: true, dry_run: true, message: 'Dry run: draft written to state/beehiiv-ready-draft.html' };
   }
 
-  try {
-    const response = await fetch(BEEHIIV_API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${BEEHIIV_AUTH_TOKEN}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      return {
-        success: false,
-        status: response.status,
-        error: data.errors ? data.errors[0]?.message : 'Unknown error'
-      };
-    }
-    
-    return {
-      success: true,
-      post_id: data.data?.id,
-      message: 'Post published to Beehiiv'
-    };
-  } catch (error) {
-    return {
-      success: false,
-      error: error.message
-    };
-  }
+  return {
+    success: true,
+    message: `Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send`,
+    draft_path: DRAFT_HTML_PATH,
+    subject: draft.subject,
+    note: 'Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.'
+  };
 }
 
 async function main() {

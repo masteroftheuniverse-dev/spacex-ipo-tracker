@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://spacexipotracker.com/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>SpaceX IPO Tracker</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-28T00:00:00Z</news:publication_date>
+      <news:title>SpaceX IPO 2026 — Expected Date, Share Price &amp; How to Invest</news:title>
+      <news:keywords>SpaceX IPO, SpaceX stock, SpaceX IPO date 2026, Elon Musk retail investors, SpaceX valuation</news:keywords>
+    </news:news>
+    <image:image>
+      <image:loc>https://spacexipotracker.com/og-image.jpg</image:loc>
+      <image:title>SpaceX IPO 2026 Tracker</image:title>
+    </image:image>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://spacexipotracker.com/news.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>SpaceX IPO Tracker</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-28T00:00:00Z</news:publication_date>
+      <news:title>SpaceX IPO News &amp; Intelligence Briefings — Musk Opens 30% to Retail Investors</news:title>
+      <news:keywords>SpaceX IPO news, Elon Musk retail investors, SpaceX IPO date, Starlink IPO 2026</news:keywords>
+    </news:news>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://spacexipotracker.com/invest.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>SpaceX IPO Tracker</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-26T00:00:00Z</news:publication_date>
+      <news:title>How to Invest in SpaceX Before the IPO — 2026 Guide</news:title>
+      <news:keywords>how to invest SpaceX, SpaceX pre-IPO, SpaceX stock purchase, SpaceX IPO access</news:keywords>
+    </news:news>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spacexipotracker.com/markets.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>SpaceX IPO Tracker</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-26T00:00:00Z</news:publication_date>
+      <news:title>SpaceX IPO Prediction Markets — Kalshi Odds &amp; Probabilities</news:title>
+      <news:keywords>SpaceX IPO prediction market, Kalshi SpaceX, SpaceX IPO odds, SpaceX IPO probability</news:keywords>
+    </news:news>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+
+  <url>
+    <loc>https://spacexipotracker.com/articles/spacex-ipo-30-percent-retail-investors-how-to-buy.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>SpaceX IPO Tracker</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-29T06:00:00Z</news:publication_date>
+      <news:title>Elon Musk Reportedly Weighs Giving Retail Investors 30% Of SpaceX IPO</news:title>
+      <news:keywords>SpaceX IPO retail allocation 30%, how to buy SpaceX shares 2026, Starlink IPO investment strategy</news:keywords>
+    </news:news>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+</urlset>
