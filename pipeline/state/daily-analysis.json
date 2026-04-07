@@ -1,5 +1,39 @@
 [
   {
+    "date": "2026-04-07",
+    "dateStr": "April 6, 2026",
+    "tag": "Launch & Tech",
+    "angle": "Starship Progress and Its Impact on SpaceX IPO Timing",
+    "body": "SpaceX's Starship development remains one of the most watched indicators for IPO readiness. Each successful launch milestone strengthens the company's valuation story and signals to institutional investors that the business case for going public is maturing. Analysts closely watch Starship commercialization — once it begins generating launch revenue at scale, SpaceX's case for a public market listing becomes significantly stronger.",
+    "headlines": [
+      {
+        "title": "SpaceX Starship - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/SpaceX_Starship",
+        "description": "This was the final launch of the Block 2 configuration of Starship and Super Heavy. SpaceX develops the Starship primarily with private funding. SpaceX Chief Financial Officer Bret Johnsen disclosed in court that SpaceX has invested <strong>more than $3 billion</strong> into the Starbase facility and Starship ...",
+        "source": "en.wikipedia.org"
+      },
+      {
+        "title": "Starship V3 Test Launch Delayed to May",
+        "url": "https://voi.id/en/technology/568398",
+        "description": "NASA has provided support of <strong>135 million US dollars (Rp. 2.2 trillion)</strong> for the development of this lander design. This large investment is given so that Starship can become the best manned lander on the moon&#x27;s surface.",
+        "source": "voi.id"
+      },
+      {
+        "title": "SpaceX Starship (spacecraft) - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/SpaceX_Starship_(spacecraft)",
+        "description": "Furthermore, it has been proposed to be used to refuel other Starship spacecraft, enabling them to reach higher orbits and other space destinations. Elon Musk, the CEO of SpaceX, estimated in a tweet that eight launches would be needed to completely refuel a Starship in low Earth orbit.",
+        "source": "en.wikipedia.org"
+      },
+      {
+        "title": "FinancialContent - To the Moon and the Markets: SpaceX Files for Historic $2.1 Trillion IPO",
+        "url": "https://markets.financialcontent.com/stocks/article/marketminute-2026-4-6-to-the-moon-and-the-markets-spacex-files-for-historic-21-trillion-ipo",
+        "description": "To the Moon and the Markets: SpaceX Files for Historic <strong>$2.1 Trillion</strong> IPO",
+        "source": "markets.financialcontent.com"
+      }
+    ],
+    "html": "\n                <article class=\"analysis-item\">\n                    <div class=\"analysis-meta\">\n                        <span class=\"analysis-date\">April 6, 2026</span>\n                        <span class=\"analysis-tag\">Launch & Tech</span>\n                    </div>\n                    <h3>Starship Progress and Its Impact on SpaceX IPO Timing</h3>\n                    <p>SpaceX's Starship development remains one of the most watched indicators for IPO readiness. Each successful launch milestone strengthens the company's valuation story and signals to institutional investors that the business case for going public is maturing. Analysts closely watch Starship commercialization — once it begins generating launch revenue at scale, SpaceX's case for a public market listing becomes significantly stronger.</p>\n                    <div class=\"analysis-headlines\">\n                        <p class=\"analysis-headlines-label\">📰 News driving this analysis:</p>\n                        <ul>\n                        <li><a href=\"https://en.wikipedia.org/wiki/SpaceX_Starship\" target=\"_blank\" rel=\"noopener\">SpaceX Starship - Wikipedia</a> — This was the final launch of the Block 2 configuration of Starship and Super Heavy. SpaceX develops ...</li>\n                        <li><a href=\"https://voi.id/en/technology/568398\" target=\"_blank\" rel=\"noopener\">Starship V3 Test Launch Delayed to May</a> — NASA has provided support of <strong>135 million US dollars (Rp. 2.2 trillion)</strong> for the deve...</li>\n                        <li><a href=\"https://en.wikipedia.org/wiki/SpaceX_Starship_(spacecraft)\" target=\"_blank\" rel=\"noopener\">SpaceX Starship (spacecraft) - Wikipedia</a> — Furthermore, it has been proposed to be used to refuel other Starship spacecraft, enabling them to r...</li>\n                        </ul>\n                    </div>\n                    <p class=\"analysis-sources\"><strong>Sources:</strong> <a href=\"https://en.wikipedia.org/wiki/SpaceX_Starship\" target=\"_blank\" rel=\"noopener\">en.wikipedia.org</a> · <a href=\"https://voi.id/en/technology/568398\" target=\"_blank\" rel=\"noopener\">voi.id</a> · <a href=\"https://en.wikipedia.org/wiki/SpaceX_Starship_(spacecraft)\" target=\"_blank\" rel=\"noopener\">en.wikipedia.org</a> · <a href=\"https://markets.financialcontent.com/stocks/article/marketminute-2026-4-6-to-the-moon-and-the-markets-spacex-files-for-historic-21-trillion-ipo\" target=\"_blank\" rel=\"noopener\">markets.financialcontent.com</a></p>\n                </article>"
+  },
+  {
     "date": "2026-04-03",
     "dateStr": "April 2, 2026",
     "tag": "Valuation",
