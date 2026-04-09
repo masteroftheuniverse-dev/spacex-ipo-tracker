@@ -12,8 +12,11 @@ export async function onRequestOptions() {
 export async function onRequestPost(context) {
   const { request, env } = context;
   
-  const BEEHIIV_API_KEY = env.BEEHIIV_API_KEY || 'REDACTED';
-  const PUB_ID = env.BEEHIIV_PUB_ID || 'REDACTED';
+  const BEEHIIV_API_KEY = env.BEEHIIV_API_KEY;
+  const PUB_ID = env.BEEHIIV_PUB_ID;
+  if (!BEEHIIV_API_KEY || !PUB_ID) {
+    return new Response(JSON.stringify({ error: 'Server configuration error' }), { status: 500, headers: corsHeaders });
+  }
 
   let email;
   try {

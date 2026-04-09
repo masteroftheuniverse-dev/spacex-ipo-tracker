@@ -1,5 +1,5 @@
-const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY || 'REDACTED';
-const PUB_ID = process.env.BEEHIIV_PUB_ID || 'REDACTED';
+const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY;
+const PUB_ID = process.env.BEEHIIV_PUB_ID;
 
 exports.handler = async function (event, context) {
   // CORS preflight
