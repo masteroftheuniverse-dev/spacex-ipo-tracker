@@ -1,5 +1,39 @@
 [
   {
+    "date": "2026-04-09",
+    "dateStr": "April 8, 2026",
+    "tag": "Launch & Tech",
+    "angle": "Starship Progress and Its Impact on SpaceX IPO Timing",
+    "body": "SpaceX's Starship development remains one of the most watched indicators for IPO readiness. Each successful launch milestone strengthens the company's valuation story and signals to institutional investors that the business case for going public is maturing. Analysts closely watch Starship commercialization — once it begins generating launch revenue at scale, SpaceX's case for a public market listing becomes significantly stronger.",
+    "headlines": [
+      {
+        "title": "How the math works on a $1.75 trillion SpaceX valuation | Reuters",
+        "url": "https://www.reuters.com/legal/government/how-math-works-175-trillion-spacex-valuation-2026-04-08/",
+        "description": "Elon Musk’s SpaceX is seeking a $1.75 trillion valuation in its forthcoming initial public offering. How far into the stratosphere is that?",
+        "source": "reuters.com"
+      },
+      {
+        "title": "Elon Musk SpaceX IPO: $2 Trillion Valuation Push Explained - Bloomberg",
+        "url": "https://www.bloomberg.com/news/articles/2026-04-08/elon-musk-spacex-ipo-2-trillion-valuation-push-explained",
+        "description": "Its <strong>$2 trillion valuation</strong> leans heavily on AI hype.",
+        "source": "bloomberg.com"
+      },
+      {
+        "title": "This Stock Is the Best Way to Buy Into SpaceX Before Its IPO, but Could You Be Better Off Waiting? | The Motley Fool",
+        "url": "https://www.fool.com/investing/2026/04/08/stock-best-way-buy-spacex-before-ipo-wait/",
+        "description": "This company is set to be a major shareholder of the blockbuster IPO. ... <strong>SpaceX confidentially filed to go public via an initial public offering (IPO).</strong>",
+        "source": "fool.com"
+      },
+      {
+        "title": "Elon Musk says SpaceX is bumping Starship's 2026 debut once again",
+        "url": "https://eu.usatoday.com/story/news/nation/2026/04/08/spacex-delays-starship-elon-musk/89499458007/",
+        "description": "SpaceX chief Elon Musk said the commercial spaceflight company is <strong>bumping the 2026 debut launch of its massive Starship rocket yet again</strong>.",
+        "source": "eu.usatoday.com"
+      }
+    ],
+    "html": "\n                <article class=\"analysis-item\">\n                    <div class=\"analysis-meta\">\n                        <span class=\"analysis-date\">April 8, 2026</span>\n                        <span class=\"analysis-tag\">Launch & Tech</span>\n                    </div>\n                    <h3>Starship Progress and Its Impact on SpaceX IPO Timing</h3>\n                    <p>SpaceX's Starship development remains one of the most watched indicators for IPO readiness. Each successful launch milestone strengthens the company's valuation story and signals to institutional investors that the business case for going public is maturing. Analysts closely watch Starship commercialization — once it begins generating launch revenue at scale, SpaceX's case for a public market listing becomes significantly stronger.</p>\n                    <div class=\"analysis-headlines\">\n                        <p class=\"analysis-headlines-label\">📰 News driving this analysis:</p>\n                        <ul>\n                        <li><a href=\"https://www.reuters.com/legal/government/how-math-works-175-trillion-spacex-valuation-2026-04-08/\" target=\"_blank\" rel=\"noopener\">How the math works on a $1.75 trillion SpaceX valuation | Reuters</a> — Elon Musk’s SpaceX is seeking a $1.75 trillion valuation in its forthcoming initial public offering....</li>\n                        <li><a href=\"https://www.bloomberg.com/news/articles/2026-04-08/elon-musk-spacex-ipo-2-trillion-valuation-push-explained\" target=\"_blank\" rel=\"noopener\">Elon Musk SpaceX IPO: $2 Trillion Valuation Push Explained - Bloomberg</a> — Its <strong>$2 trillion valuation</strong> leans heavily on AI hype.</li>\n                        <li><a href=\"https://www.fool.com/investing/2026/04/08/stock-best-way-buy-spacex-before-ipo-wait/\" target=\"_blank\" rel=\"noopener\">This Stock Is the Best Way to Buy Into SpaceX Before Its IPO, but Could You Be Better Off Waiting? | The Motley Fool</a> — This company is set to be a major shareholder of the blockbuster IPO. ... <strong>SpaceX confidentia...</li>\n                        </ul>\n                    </div>\n                    <p class=\"analysis-sources\"><strong>Sources:</strong> <a href=\"https://www.reuters.com/legal/government/how-math-works-175-trillion-spacex-valuation-2026-04-08/\" target=\"_blank\" rel=\"noopener\">reuters.com</a> · <a href=\"https://www.bloomberg.com/news/articles/2026-04-08/elon-musk-spacex-ipo-2-trillion-valuation-push-explained\" target=\"_blank\" rel=\"noopener\">bloomberg.com</a> · <a href=\"https://www.fool.com/investing/2026/04/08/stock-best-way-buy-spacex-before-ipo-wait/\" target=\"_blank\" rel=\"noopener\">fool.com</a> · <a href=\"https://eu.usatoday.com/story/news/nation/2026/04/08/spacex-delays-starship-elon-musk/89499458007/\" target=\"_blank\" rel=\"noopener\">eu.usatoday.com</a></p>\n                </article>"
+  },
+  {
     "date": "2026-04-08",
     "dateStr": "April 7, 2026",
     "tag": "Valuation",

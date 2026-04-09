@@ -508,6 +508,38 @@
       "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
       "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
       "timestamp": "2026-04-08T08:00:02.489Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-04-08",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-04-08T12:00:00.885Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-04-08",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-04-08T16:00:01.936Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-04-08",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-04-08T20:00:01.949Z"
+    },
+    {
+      "subject": "SpaceX IPO Insider — Week of 2026-04-09",
+      "success": true,
+      "message": "Draft saved to pipeline/state/beehiiv-ready-draft.html — paste into beehiiv.com/posts/new to send",
+      "draft_path": "/Users/Clawdbot/.openclaw/workspace/projects/spacex-ipo-tracker/pipeline/state/beehiiv-ready-draft.html",
+      "note": "Beehiiv POST API requires Enterprise plan. Manual paste is the workaround.",
+      "timestamp": "2026-04-09T00:00:01.514Z"
     }
   ]
 }
