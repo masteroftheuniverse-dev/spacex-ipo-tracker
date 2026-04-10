@@ -1,5 +1,39 @@
 [
   {
+    "date": "2026-04-10",
+    "dateStr": "April 9, 2026",
+    "tag": "Starlink IPO",
+    "angle": "Starlink IPO: The Gateway to SpaceX Going Public",
+    "body": "Elon Musk has repeatedly stated that Starlink will IPO before SpaceX itself. Starlink's subscription revenue — currently serving millions of customers globally — provides the recurring revenue profile that public market investors favor. A Starlink IPO is expected to serve as both a valuation benchmark and a dry run for the larger SpaceX offering. Investors tracking the Starlink IPO timeline should watch for SEC filings that would precede any public offering by 3–6 months.",
+    "headlines": [
+      {
+        "title": "Starlink, US Mobile announce $47 bundle to supercharge subscriptions ahead of SpaceX IPO",
+        "url": "https://finance.yahoo.com/markets/article/starlink-us-mobile-announce-47-bundle-to-supercharge-subscriptions-ahead-of-spacex-ipo-180838216.html",
+        "description": "Starlink and US Mobile announced a new partnership offering discounted service bundles for a limited time that combine home satellite internet with mobile data plans. The deal comes as SpaceX, Starlink’s parent, plans its upcoming IPO.",
+        "source": "finance.yahoo.com"
+      },
+      {
+        "title": "Dear Future SpaceX Stock Investors, Mark Your Calendars for June 11",
+        "url": "https://www.barchart.com/story/news/1223296/dear-future-spacex-stock-investors-mark-your-calendars-for-june-11",
+        "description": "Elon Musk’s SpaceX is racing toward a record‑setting June IPO at a proposed $1.75 trillion valuation, fueled by Starlink’s booming subscriber base, huge government contracts, and an aggressive Starship and orbital‑data‑center expansion plan.",
+        "source": "barchart.com"
+      },
+      {
+        "title": "SpaceX Stock $528.24 | How to Buy, Valuation, Stock Price ...",
+        "url": "https://notice.co/c/spacex",
+        "description": "Because SpaceX is privately held, its stock is not available for purchase through public stock exchanges like the NYSE or Nasdaq. Retail investors can not access this stock via traditional brokerage accounts, and are not allowed to invest directly in SpaceX pre-IPO.",
+        "source": "notice.co"
+      },
+      {
+        "title": "SpaceX IPO: How to buy SpaceX shares? | Stake",
+        "url": "https://hellostake.com/au/blog/trending/how-to-invest-in-spacex-stock",
+        "description": "As of now, <strong>SpaceX has not officially set or announced a definitive IPO date</strong> and no formal timetable has been published by the company.",
+        "source": "hellostake.com"
+      }
+    ],
+    "html": "\n                <article class=\"analysis-item\">\n                    <div class=\"analysis-meta\">\n                        <span class=\"analysis-date\">April 9, 2026</span>\n                        <span class=\"analysis-tag\">Starlink IPO</span>\n                    </div>\n                    <h3>Starlink IPO: The Gateway to SpaceX Going Public</h3>\n                    <p>Elon Musk has repeatedly stated that Starlink will IPO before SpaceX itself. Starlink's subscription revenue — currently serving millions of customers globally — provides the recurring revenue profile that public market investors favor. A Starlink IPO is expected to serve as both a valuation benchmark and a dry run for the larger SpaceX offering. Investors tracking the Starlink IPO timeline should watch for SEC filings that would precede any public offering by 3–6 months.</p>\n                    <div class=\"analysis-headlines\">\n                        <p class=\"analysis-headlines-label\">📰 News driving this analysis:</p>\n                        <ul>\n                        <li><a href=\"https://finance.yahoo.com/markets/article/starlink-us-mobile-announce-47-bundle-to-supercharge-subscriptions-ahead-of-spacex-ipo-180838216.html\" target=\"_blank\" rel=\"noopener\">Starlink, US Mobile announce $47 bundle to supercharge subscriptions ahead of SpaceX IPO</a> — Starlink and US Mobile announced a new partnership offering discounted service bundles for a limited...</li>\n                        <li><a href=\"https://www.barchart.com/story/news/1223296/dear-future-spacex-stock-investors-mark-your-calendars-for-june-11\" target=\"_blank\" rel=\"noopener\">Dear Future SpaceX Stock Investors, Mark Your Calendars for June 11</a> — Elon Musk’s SpaceX is racing toward a record‑setting June IPO at a proposed $1.75 trillion valuation...</li>\n                        <li><a href=\"https://notice.co/c/spacex\" target=\"_blank\" rel=\"noopener\">SpaceX Stock $528.24 | How to Buy, Valuation, Stock Price ...</a> — Because SpaceX is privately held, its stock is not available for purchase through public stock excha...</li>\n                        </ul>\n                    </div>\n                    <p class=\"analysis-sources\"><strong>Sources:</strong> <a href=\"https://finance.yahoo.com/markets/article/starlink-us-mobile-announce-47-bundle-to-supercharge-subscriptions-ahead-of-spacex-ipo-180838216.html\" target=\"_blank\" rel=\"noopener\">finance.yahoo.com</a> · <a href=\"https://www.barchart.com/story/news/1223296/dear-future-spacex-stock-investors-mark-your-calendars-for-june-11\" target=\"_blank\" rel=\"noopener\">barchart.com</a> · <a href=\"https://notice.co/c/spacex\" target=\"_blank\" rel=\"noopener\">notice.co</a> · <a href=\"https://hellostake.com/au/blog/trending/how-to-invest-in-spacex-stock\" target=\"_blank\" rel=\"noopener\">hellostake.com</a></p>\n                </article>"
+  },
+  {
     "date": "2026-04-09",
     "dateStr": "April 8, 2026",
     "tag": "Valuation",
