@@ -1,5 +1,39 @@
 [
   {
+    "date": "2026-04-11",
+    "dateStr": "April 10, 2026",
+    "tag": "Valuation",
+    "angle": "SpaceX Valuation Update — Reading the Secondary Market Signals",
+    "body": "Secondary market transactions in SpaceX shares are the closest thing retail investors have to real-time pricing data on the company before it goes public. When these transactions tick up in volume or price, it signals institutional conviction. SpaceX's current ~$350B valuation implies an IPO share price that would place it among the largest U.S. tech listings in history. For context, Meta IPO'd at ~$100B in 2012. The gap illustrates how much expectations have grown.",
+    "headlines": [
+      {
+        "title": "SpaceX Stock $520.09 | How to Buy, Valuation, Stock Price ...",
+        "url": "https://notice.co/c/spacex",
+        "description": "SpaceX stock is not currently traded in the private markets. We do not have enough data to print a price history for SpaceX right now. If you can share any SpaceX stock trade data or funding round price per share, then we can start pricing coverage for SpaceX. We are missing all SpaceX funding round valuations...",
+        "source": "notice.co"
+      },
+      {
+        "title": "Invest and Sell SpaceX Stock - Forge",
+        "url": "https://forgeglobal.com/spacex_stock/",
+        "description": "Use proprietary pricing insights and market data to assess timing and valuation · Submit an indication to sell, negotiate terms, complete the transaction and receive your payment · No, SpaceX is a privately held company and is currently not publicly traded on any stock markets including NYSE or NASDAQ.",
+        "source": "forgeglobal.com"
+      },
+      {
+        "title": "SpaceX Stock | Hiive Price $671.02 | Invest or Sell",
+        "url": "https://www.hiive.com/securities/spacex-stock",
+        "description": "Accredited investors can invest in the top private companies like SpaceX before they IPO via secondary marketplaces such as Hiive.",
+        "source": "hiive.com"
+      },
+      {
+        "title": "SpaceX IPO Closing Market Cap Predictions & Odds | Polymarket",
+        "url": "https://polymarket.com/event/spacex-ipo-closing-market-cap",
+        "description": "However, skepticism tempers higher bins amid private valuations near $1.4T, regulatory hurdles for mega-constellations, and execution risks on Mars ambitions, positioning <strong>$2.0T–$2.5T (26%)</strong> as the next likely outcome while &quot;No IPO before 2028&quot; ...",
+        "source": "polymarket.com"
+      }
+    ],
+    "html": "\n                <article class=\"analysis-item\">\n                    <div class=\"analysis-meta\">\n                        <span class=\"analysis-date\">April 10, 2026</span>\n                        <span class=\"analysis-tag\">Valuation</span>\n                    </div>\n                    <h3>SpaceX Valuation Update — Reading the Secondary Market Signals</h3>\n                    <p>Secondary market transactions in SpaceX shares are the closest thing retail investors have to real-time pricing data on the company before it goes public. When these transactions tick up in volume or price, it signals institutional conviction. SpaceX's current ~$350B valuation implies an IPO share price that would place it among the largest U.S. tech listings in history. For context, Meta IPO'd at ~$100B in 2012. The gap illustrates how much expectations have grown.</p>\n                    <div class=\"analysis-headlines\">\n                        <p class=\"analysis-headlines-label\">📰 News driving this analysis:</p>\n                        <ul>\n                        <li><a href=\"https://notice.co/c/spacex\" target=\"_blank\" rel=\"noopener\">SpaceX Stock $520.09 | How to Buy, Valuation, Stock Price ...</a> — SpaceX stock is not currently traded in the private markets. We do not have enough data to print a p...</li>\n                        <li><a href=\"https://forgeglobal.com/spacex_stock/\" target=\"_blank\" rel=\"noopener\">Invest and Sell SpaceX Stock - Forge</a> — Use proprietary pricing insights and market data to assess timing and valuation · Submit an indicati...</li>\n                        <li><a href=\"https://www.hiive.com/securities/spacex-stock\" target=\"_blank\" rel=\"noopener\">SpaceX Stock | Hiive Price $671.02 | Invest or Sell</a> — Accredited investors can invest in the top private companies like SpaceX before they IPO via seconda...</li>\n                        </ul>\n                    </div>\n                    <p class=\"analysis-sources\"><strong>Sources:</strong> <a href=\"https://notice.co/c/spacex\" target=\"_blank\" rel=\"noopener\">notice.co</a> · <a href=\"https://forgeglobal.com/spacex_stock/\" target=\"_blank\" rel=\"noopener\">forgeglobal.com</a> · <a href=\"https://www.hiive.com/securities/spacex-stock\" target=\"_blank\" rel=\"noopener\">hiive.com</a> · <a href=\"https://polymarket.com/event/spacex-ipo-closing-market-cap\" target=\"_blank\" rel=\"noopener\">polymarket.com</a></p>\n                </article>"
+  },
+  {
     "date": "2026-04-10",
     "dateStr": "April 9, 2026",
     "tag": "Starlink IPO",
