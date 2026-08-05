@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boardlink — Summerboard SBX2 remote pairing &amp; telemetry</title>
+<style>
+  :root {
+    --ground:        #E7E3DA;
+    --surface:       #FBFAF7;
+    --raised:        #F1EEE7;
+    --line:          #D3CDC0;
+    --line-soft:     #E0DBD0;
+    --text:          #1D1A14;
+    --text-muted:    #6B6455;
+    --text-faint:    #938B79;
+    --accent:        #E14A16;
+    --accent-ink:    #FFFFFF;
+    --accent-soft:   rgba(225, 74, 22, 0.10);
+    --gold:          #C98A06;
+    --ok:            #3E7F58;
+    --ok-soft:       rgba(62, 127, 88, 0.12);
+    --warn:          #A9760D;
+    --warn-soft:     rgba(169, 118, 13, 0.13);
+    --fault:         #B7301F;
+    --fault-soft:    rgba(183, 48, 31, 0.11);
+    --shadow:        0 1px 2px rgba(29,26,20,.06), 0 8px 24px -12px rgba(29,26,20,.18);
+
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Roboto Mono", "DejaVu Sans Mono", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:      #16130E;
+      --surface:     #201C16;
+      --raised:      #2A251D;
+      --line:        #3A342A;
+      --line-soft:   #2F2A22;
+      --text:        #F0EADC;
+      --text-muted:  #A79E8B;
+      --text-faint:  #7C7362;
+      --accent:      #FF7038;
+      --accent-ink:  #1A1105;
+      --accent-soft: rgba(255, 112, 56, 0.14);
+      --gold:        #E8AE2B;
+      --ok:          #6FBF8C;
+      --ok-soft:     rgba(111, 191, 140, 0.14);
+      --warn:        #E0AC46;
+      --warn-soft:   rgba(224, 172, 70, 0.14);
+      --fault:       #F2705C;
+      --fault-soft:  rgba(242, 112, 92, 0.14);
+      --shadow:      0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+    }
+  }
+
+  :root[data-theme="light"] {
+    --ground: #E7E3DA; --surface: #FBFAF7; --raised: #F1EEE7;
+    --line: #D3CDC0; --line-soft: #E0DBD0;
+    --text: #1D1A14; --text-muted: #6B6455; --text-faint: #938B79;
+    --accent: #E14A16; --accent-ink: #FFFFFF; --accent-soft: rgba(225,74,22,.10);
+    --gold: #C98A06;
+    --ok: #3E7F58; --ok-soft: rgba(62,127,88,.12);
+    --warn: #A9760D; --warn-soft: rgba(169,118,13,.13);
+    --fault: #B7301F; --fault-soft: rgba(183,48,31,.11);
+    --shadow: 0 1px 2px rgba(29,26,20,.06), 0 8px 24px -12px rgba(29,26,20,.18);
+  }
+  :root[data-theme="dark"] {
+    --ground: #16130E; --surface: #201C16; --raised: #2A251D;
+    --line: #3A342A; --line-soft: #2F2A22;
+    --text: #F0EADC; --text-muted: #A79E8B; --text-faint: #7C7362;
+    --accent: #FF7038; --accent-ink: #1A1105; --accent-soft: rgba(255,112,56,.14);
+    --gold: #E8AE2B;
+    --ok: #6FBF8C; --ok-soft: rgba(111,191,140,.14);
+    --warn: #E0AC46; --warn-soft: rgba(224,172,70,.14);
+    --fault: #F2705C; --fault-soft: rgba(242,112,92,.14);
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 20px 16px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead { display: flex; align-items: flex-start; gap: 12px; padding-top: 8px; }
+  .mark {
+    width: 40px; height: 40px; flex: none; border-radius: 11px;
+    background: var(--accent); color: var(--accent-ink);
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 19px; letter-spacing: -.04em;
+  }
+  .masthead h1 {
+    margin: 0; font-size: 20px; font-weight: 750;
+    letter-spacing: -.02em; line-height: 1.2; text-wrap: balance;
+  }
+  .masthead p { margin: 2px 0 0; font-size: 13px; color: var(--text-muted); }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--text-faint);
+  }
+
+  /* ---------- cards ---------- */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line-soft);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 16px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .card > .eyebrow { margin-bottom: -4px; }
+
+  /* ---------- link bar ---------- */
+  .linkbar { display: flex; align-items: center; gap: 10px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; background: var(--text-faint); }
+  .dot.live { background: var(--ok); box-shadow: 0 0 0 4px var(--ok-soft); }
+  .dot.busy { background: var(--gold); box-shadow: 0 0 0 4px var(--warn-soft); }
+  .dot.bad  { background: var(--fault); box-shadow: 0 0 0 4px var(--fault-soft); }
+  @media (prefers-reduced-motion: no-preference) {
+    .dot.live, .dot.busy { animation: pulse 2s ease-in-out infinite; }
+  }
+  @keyframes pulse { 50% { opacity: .45; } }
+
+  .linkbar .state { font-weight: 650; font-size: 15px; letter-spacing: -.01em; }
+  .linkbar .sub { font-size: 12.5px; color: var(--text-muted); font-family: var(--mono); }
+  .linkbar .grow { flex: 1; min-width: 0; }
+
+  /* ---------- buttons ---------- */
+  button {
+    font: inherit; cursor: pointer; border-radius: 10px;
+    border: 1px solid transparent; padding: 11px 16px;
+    font-weight: 650; letter-spacing: -.01em;
+    transition: filter .15s ease, background .15s ease, border-color .15s ease;
+  }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button:disabled { opacity: .4; cursor: not-allowed; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:not(:disabled):hover { filter: brightness(1.07); }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--line); }
+  .btn-ghost:not(:disabled):hover { background: var(--raised); }
+  .btn-big { width: 100%; padding: 15px 18px; font-size: 16.5px; }
+
+  /* ---------- pairing ---------- */
+  .pair-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .pair-head h2 { margin: 0; font-size: 16.5px; font-weight: 700; letter-spacing: -.015em; }
+  .steps { margin: 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; counter-reset: s; }
+  .steps li {
+    display: grid; grid-template-columns: 22px 1fr; gap: 10px;
+    font-size: 14px; color: var(--text-muted); line-height: 1.45;
+  }
+  .steps li::before {
+    counter-increment: s; content: counter(s);
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    color: var(--text-faint); background: var(--raised);
+    border-radius: 6px; height: 20px; display: grid; place-items: center;
+  }
+  .steps li b { color: var(--text); font-weight: 650; }
+
+  .countdown {
+    display: none; align-items: center; gap: 12px;
+    background: var(--warn-soft); border: 1px solid transparent;
+    border-radius: 11px; padding: 12px 14px;
+  }
+  .countdown.on { display: flex; }
+  .ring { width: 38px; height: 38px; flex: none; transform: rotate(-90deg); }
+  .ring circle { fill: none; stroke-width: 4; }
+  .ring .track { stroke: var(--line); opacity: .5; }
+  .ring .head { stroke: var(--gold); stroke-linecap: round; transition: stroke-dashoffset .25s linear; }
+  .countdown .msg { font-size: 13.5px; line-height: 1.4; }
+  .countdown .msg b { display: block; font-size: 14.5px; font-weight: 700; }
+
+  .result { display: none; border-radius: 11px; padding: 12px 14px; font-size: 14px; gap: 4px; flex-direction: column; }
+  .result.on { display: flex; }
+  .result b { font-size: 15px; font-weight: 700; }
+  .result.good { background: var(--ok-soft); color: var(--ok); }
+  .result.bad  { background: var(--fault-soft); color: var(--fault); }
+  .result span { color: var(--text-muted); }
+
+  /* ---------- telemetry ---------- */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line-soft); border-radius: 11px; overflow: hidden; border: 1px solid var(--line-soft); }
+  @media (min-width: 440px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  .cell { background: var(--surface); padding: 11px 12px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .cell .k { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); }
+  .cell .v {
+    font-family: var(--mono); font-size: 19px; font-weight: 600;
+    font-variant-numeric: tabular-nums; letter-spacing: -.03em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .cell .v small { font-size: 11.5px; font-weight: 500; color: var(--text-muted); margin-left: 2px; letter-spacing: 0; }
+  .cell.warn .v { color: var(--warn); }
+  .cell.bad  .v { color: var(--fault); }
+
+  .batwrap { display: flex; flex-direction: column; gap: 7px; }
+  .batline { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .batline .pct { font-family: var(--mono); font-size: 30px; font-weight: 650; font-variant-numeric: tabular-nums; letter-spacing: -.04em; }
+  .batline .cells { font-size: 12.5px; color: var(--text-muted); }
+  .bar { height: 8px; border-radius: 99px; background: var(--raised); overflow: hidden; border: 1px solid var(--line-soft); }
+  .bar i { display: block; height: 100%; width: 0; background: var(--ok); transition: width .4s ease, background .4s ease; }
+
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12.5px; font-weight: 650; padding: 5px 10px; border-radius: 99px;
+    background: var(--ok-soft); color: var(--ok); align-self: flex-start;
+  }
+  .chip.bad { background: var(--fault-soft); color: var(--fault); }
+  .chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+  /* ---------- misc ---------- */
+  select {
+    font: inherit; font-size: 14px; padding: 7px 10px; border-radius: 9px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--text);
+  }
+  select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .field { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--text-muted); }
+
+  .note {
+    font-size: 13px; color: var(--text-muted); line-height: 1.5;
+    border-left: 2px solid var(--accent); padding-left: 12px;
+  }
+  .note b { color: var(--text); font-weight: 650; }
+
+  details.log { border-radius: 14px; border: 1px solid var(--line-soft); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
+  details.log summary { cursor: pointer; padding: 14px 16px; font-size: 13.5px; font-weight: 650; color: var(--text-muted); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  details.log summary::-webkit-details-marker { display: none; }
+  details.log summary::after { content: "▾"; color: var(--text-faint); font-size: 11px; }
+  details.log[open] summary::after { content: "▴"; }
+  details.log summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .console {
+    font-family: var(--mono); font-size: 11.5px; line-height: 1.6;
+    background: var(--raised); border-top: 1px solid var(--line-soft);
+    padding: 12px 14px; max-height: 260px; overflow: auto;
+    white-space: pre-wrap; word-break: break-word; color: var(--text-muted);
+  }
+  .console .t { color: var(--text-faint); }
+  .console .rx { color: var(--ok); }
+  .console .tx { color: var(--accent); }
+  .console .er { color: var(--fault); }
+  .log-actions { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line-soft); }
+
+  .unsupported { display: none; }
+  .unsupported.on { display: flex; }
+
+  footer { font-size: 12px; color: var(--text-faint); line-height: 1.55; text-align: center; padding: 0 8px; }
+  footer b { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="mark">B</div>
+    <div>
+      <h1>Boardlink</h1>
+      <p>Remote pairing &amp; live telemetry for the Summerboard SBX2</p>
+    </div>
+  </header>
+
+  <div class="card unsupported" id="unsupported">
+    <span class="eyebrow" style="color:var(--fault)">Browser can't do Bluetooth</span>
+    <p style="margin:0;font-size:14px;line-height:1.55">
+      This page talks to your board over Web Bluetooth, which this browser doesn't support.
+      On <b>Android</b>, open it in <b>Chrome</b>. On <b>iPhone</b>, Safari and Chrome both lack
+      Bluetooth support — use the <b>Bluefy</b> browser from the App Store instead.
+    </p>
+  </div>
+
+  <div class="card unsupported" id="blocked">
+    <span class="eyebrow" style="color:var(--fault)" id="blocked-title">Open this page in its own tab</span>
+    <p style="margin:0;font-size:14px;line-height:1.55" id="blocked-body">
+      Bluetooth is switched off inside embedded previews. Open this address directly in
+      <b>Chrome</b> as a normal tab, then connect from there.
+    </p>
+    <p style="margin:0;font-family:var(--mono);font-size:11.5px;color:var(--text-faint);word-break:break-word" id="blocked-detail"></p>
+  </div>
+
+  <div class="card">
+    <div class="linkbar">
+      <span class="dot" id="dot"></span>
+      <div class="grow">
+        <div class="state" id="state">Not connected</div>
+        <div class="sub" id="substate">Power the board on, then connect</div>
+      </div>
+    </div>
+    <button class="btn-primary btn-big" id="connect">Connect to board</button>
+    <button class="btn-ghost" id="connect-any">Board isn't in the list</button>
+    <p class="note">
+      Pick <b>VESC BLE UART</b> from the device list. That's your SBX2 — the board's
+      Bluetooth module uses the standard VESC name.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="pair-head">
+      <h2>Pair your remote</h2>
+      <span class="eyebrow">Command 37</span>
+    </div>
+    <ol class="steps">
+      <li>Connect to the board above, and stand near it.</li>
+      <li>Press <b>Start pairing</b> here. The board opens a 10-second pairing window.</li>
+      <li>While the window is open, put the remote in pairing mode: hold its
+          <b>power button</b> until the LED blinks rapidly.</li>
+      <li>The remote's LED goes solid when it's bound to the board.</li>
+    </ol>
+
+    <button class="btn-primary btn-big" id="pair" disabled>Start pairing</button>
+
+    <div class="countdown" id="countdown">
+      <svg class="ring" viewBox="0 0 40 40" aria-hidden="true">
+        <circle class="track" cx="20" cy="20" r="16"></circle>
+        <circle class="head" cx="20" cy="20" r="16" id="ring"
+                stroke-dasharray="100.5" stroke-dashoffset="0"></circle>
+      </svg>
+      <div class="msg">
+        <b id="cd-num">10s</b>
+        <span>Pairing window open — put the remote in pairing mode now</span>
+      </div>
+    </div>
+
+    <div class="result" id="pair-result" role="status"></div>
+  </div>
+
+  <div class="card">
+    <span class="eyebrow">Battery</span>
+    <div class="batwrap">
+      <div class="batline">
+        <span class="pct" id="bat-pct">—<small style="font-size:15px">%</small></span>
+        <span class="cells" id="bat-detail">waiting for board</span>
+      </div>
+      <div class="bar"><i id="bat-bar"></i></div>
+    </div>
+    <div class="field">
+      <label for="cells">Battery pack</label>
+      <select id="cells">
+        <option value="0" selected>Detect automatically</option>
+        <option value="10">10S (36V)</option>
+        <option value="12">12S (44V)</option>
+        <option value="13">13S (48V)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="eyebrow">Live telemetry</span>
+    <div class="grid">
+      <div class="cell"><span class="k">Voltage</span><span class="v" id="t-volt">—</span></div>
+      <div class="cell"><span class="k">Speed</span><span class="v" id="t-rpm">—</span></div>
+      <div class="cell"><span class="k">Throttle</span><span class="v" id="t-duty">—</span></div>
+      <div class="cell" id="c-fet"><span class="k">Controller</span><span class="v" id="t-fet">—</span></div>
+      <div class="cell" id="c-mot"><span class="k">Motor temp</span><span class="v" id="t-mot">—</span></div>
+      <div class="cell"><span class="k">Motor amps</span><span class="v" id="t-cur">—</span></div>
+      <div class="cell"><span class="k">Battery amps</span><span class="v" id="t-bcur">—</span></div>
+      <div class="cell"><span class="k">Used</span><span class="v" id="t-ah">—</span></div>
+      <div class="cell"><span class="k">Odometer</span><span class="v" id="t-tach">—</span></div>
+    </div>
+    <span class="chip" id="fault-chip">No faults</span>
+  </div>
+
+  <details class="log">
+    <summary>Connection log</summary>
+    <div class="console" id="console"></div>
+    <div class="log-actions">
+      <button class="btn-ghost" id="copy" style="flex:1">Copy log</button>
+      <button class="btn-ghost" id="clear" style="flex:0 0 auto">Clear</button>
+    </div>
+  </details>
+
+  <footer>
+    Boardlink only <b>reads</b> from the board and asks it to open a pairing window.
+    It never sends throttle, duty or motor commands — nothing here can make the wheels spin.
+  </footer>
+
+</div>
+
+<script>
+"use strict";
+
+/* ============================================================
+   VESC over Nordic UART Service
+   ============================================================ */
+const NUS      = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
+const NUS_TX   = "6e400002-b5a3-f393-e0a9-e50e24dcca9e"; // phone -> board (write)
+const NUS_RX   = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"; // board -> phone (notify)
+
+const COMM_FW_VERSION        = 0;
+const COMM_GET_VALUES        = 4;
+const COMM_NRF_START_PAIRING = 37;
+
+const NRF_PAIR_TEXT = {
+  0: ["Pairing window open", "The board is listening. Put the remote in pairing mode now."],
+  1: ["Remote paired", "The board accepted the remote. Test the throttle with the wheels off the ground."],
+  2: ["Pairing failed", "The board closed the window without hearing a remote. Try again and start the remote's pairing mode sooner."]
+};
+
+const FAULTS = ["NONE","OVER_VOLTAGE","UNDER_VOLTAGE","DRV","ABS_OVER_CURRENT",
+  "OVER_TEMP_FET","OVER_TEMP_MOTOR","GATE_DRIVER_OVER_VOLTAGE","GATE_DRIVER_UNDER_VOLTAGE",
+  "MCU_UNDER_VOLTAGE","BOOTING_FROM_WATCHDOG_RESET","ENCODER_SPI",
+  "ENCODER_SINCOS_BELOW_MIN_AMPLITUDE","ENCODER_SINCOS_ABOVE_MAX_AMPLITUDE","FLASH_CORRUPTION",
+  "HIGH_OFFSET_CURRENT_SENSOR_1","HIGH_OFFSET_CURRENT_SENSOR_2","HIGH_OFFSET_CURRENT_SENSOR_3",
+  "UNBALANCED_CURRENTS"];
+
+/* CRC-16/XMODEM over the payload, exactly what VESC's packet layer expects. */
+function crc16(bytes) {
+  let c = 0;
+  for (let i = 0; i < bytes.length; i++) {
+    c ^= bytes[i] << 8;
+    for (let b = 0; b < 8; b++) {
+      c = (c & 0x8000) ? ((c << 1) ^ 0x1021) & 0xFFFF : (c << 1) & 0xFFFF;
+    }
+  }
+  return c;
+}
+
+function frame(payload) {
+  const len = payload.length;
+  const head = len <= 255 ? [2, len] : [3, (len >> 8) & 0xFF, len & 0xFF];
+  const crc = crc16(payload);
+  return Uint8Array.from([...head, ...payload, (crc >> 8) & 0xFF, crc & 0xFF, 3]);
+}
+
+/* Reads big-endian values out of a VESC payload. */
+class Cursor {
+  constructor(buf) { this.d = new DataView(buf.buffer, buf.byteOffset, buf.byteLength); this.i = 0; }
+  get left() { return this.d.byteLength - this.i; }
+  u8()  { return this.d.getUint8(this.i++); }
+  i16() { const v = this.d.getInt16(this.i, false); this.i += 2; return v; }
+  i32() { const v = this.d.getInt32(this.i, false); this.i += 4; return v; }
+  f16(s){ return this.i16() / s; }
+  f32(s){ return this.i32() / s; }
+}
+
+/* ============================================================
+   UI helpers
+   ============================================================ */
+const $ = id => document.getElementById(id);
+const consoleEl = $("console");
+let logLines = [];
+
+function log(kind, msg) {
+  const t = new Date().toTimeString().slice(0, 8);
+  logLines.push(`[${t}] ${msg}`);
+  const line = document.createElement("div");
+  line.innerHTML = `<span class="t">${t}</span> <span class="${kind}"></span>`;
+  line.lastElementChild.textContent = msg;
+  consoleEl.appendChild(line);
+  consoleEl.scrollTop = consoleEl.scrollHeight;
+  while (consoleEl.childElementCount > 400) consoleEl.removeChild(consoleEl.firstChild);
+}
+
+function setState(cls, title, sub) {
+  $("dot").className = "dot" + (cls ? " " + cls : "");
+  $("state").textContent = title;
+  $("substate").textContent = sub;
+}
+
+function banner(title, body, detail) {
+  $("blocked-title").textContent = title;
+  $("blocked-body").textContent = body;
+  $("blocked-detail").textContent = detail ? "Browser said: " + detail : "";
+  $("blocked").classList.add("on");
+}
+
+/* ============================================================
+   Connection
+   ============================================================ */
+let device = null, txChar = null, rxChar = null;
+let rxBuf = new Uint8Array(0);
+let pollTimer = null, pairTimer = null;
+let writeChain = Promise.resolve();
+
+const supported = typeof navigator !== "undefined" && !!navigator.bluetooth;
+if (!supported) {
+  $("unsupported").classList.add("on");
+  $("connect").disabled = true;
+  $("connect-any").disabled = true;
+  setState("bad", "Bluetooth unavailable", "This browser has no Web Bluetooth");
+}
+
+async function connect(showEverything) {
+  try {
+    log("t", showEverything ? "Opening device picker (all devices)…" : "Opening device picker…");
+    device = await navigator.bluetooth.requestDevice(showEverything
+      ? { acceptAllDevices: true, optionalServices: [NUS] }
+      : {
+          filters: [{ services: [NUS] }, { namePrefix: "VESC" }, { namePrefix: "Summerboard" }],
+          optionalServices: [NUS]
+        });
+
+    device.addEventListener("gattserverdisconnected", onDisconnect);
+    setState("busy", "Connecting…", device.name || "unnamed device");
+    log("t", `Selected "${device.name || "(no name)"}" — connecting…`);
+
+    const server  = await device.gatt.connect();
+    const service = await server.getPrimaryService(NUS);
+    txChar = await service.getCharacteristic(NUS_TX);
+    rxChar = await service.getCharacteristic(NUS_RX);
+
+    await rxChar.startNotifications();
+    rxChar.addEventListener("characteristicvaluechanged", e => ingest(new Uint8Array(e.target.value.buffer)));
+
+    rxBuf = new Uint8Array(0);
+    setState("live", "Connected", device.name || "VESC BLE UART");
+    $("connect").textContent = "Disconnect";
+    $("pair").disabled = false;
+    log("rx", "Link up — Nordic UART service open");
+
+    send([COMM_FW_VERSION]);
+    pollTimer = setInterval(() => { if (!pairTimer) send([COMM_GET_VALUES]); }, 300);
+
+  } catch (err) {
+    const msg  = (err && err.message) || String(err);
+    const name = (err && err.name) || "Error";
+    log("er", `${name}: ${msg}`);
+
+    // Embedded frames don't carry the bluetooth permission; a switched-off radio and a
+    // dismissed picker both surface as NotFoundError, so separate them on the message.
+    const embedded   = name === "SecurityError" || /permissions polic/i.test(msg);
+    const disabled   = /globally disabled/i.test(msg);
+    const adapterOff = /adapter|not available|turned off|powered off/i.test(msg);
+
+    if (embedded || disabled) {
+      banner("Open this page in its own tab",
+             "Browsers switch Bluetooth off for pages running inside another page's frame. " +
+             "Open this address directly in Chrome as a normal tab, then connect from there.", msg);
+      setState("bad", "Bluetooth blocked here", "Open this page in its own tab");
+    } else if (adapterOff) {
+      banner("Turn Bluetooth on",
+             "Your phone's Bluetooth radio is off. Switch it on in Android's quick settings, " +
+             "then tap Connect again.", msg);
+      setState("bad", "Bluetooth is off", "Switch Bluetooth on and retry");
+    } else if (name === "NotFoundError") {
+      log("t", "Device picker dismissed — nothing selected");
+      setState("", "Not connected", "No device chosen");
+    } else {
+      banner("Couldn't connect",
+             "The board didn't accept the connection. The exact error is below — send it " +
+             "with the connection log if it keeps happening.", `${name}: ${msg}`);
+      setState("bad", "Couldn't connect", "See the connection log below");
+    }
+    cleanup();
+  }
+}
+
+function onDisconnect() {
+  log("er", "Board disconnected");
+  setState("bad", "Disconnected", "Board went out of range or powered off");
+  cleanup();
+}
+
+function cleanup() {
+  clearInterval(pollTimer); pollTimer = null;
+  stopCountdown();
+  txChar = rxChar = null;
+  $("connect").textContent = "Connect to board";
+  $("pair").disabled = true;
+}
+
+function disconnect() {
+  if (device && device.gatt.connected) device.gatt.disconnect();
+  device = null;
+  setState("", "Not connected", "Power the board on, then connect");
+  cleanup();
+}
+
+/* The BLE module takes 20 bytes per write, so long packets are chunked and
+   queued — overlapping writes make the module drop frames. */
+function send(payload) {
+  if (!txChar) return;
+  const packet = frame(Uint8Array.from(payload));
+  writeChain = writeChain.then(async () => {
+    for (let i = 0; i < packet.length; i += 20) {
+      const chunk = packet.slice(i, i + 20);
+      if (txChar.writeValueWithoutResponse) await txChar.writeValueWithoutResponse(chunk);
+      else await txChar.writeValue(chunk);
+    }
+  }).catch(err => log("er", `Write failed: ${err.message || err}`));
+  if (payload[0] !== COMM_GET_VALUES) log("tx", `→ command ${payload[0]}`);
+}
+
+/* ============================================================
+   Packet reassembly — notifications arrive in arbitrary slices
+   ============================================================ */
+function ingest(chunk) {
+  const merged = new Uint8Array(rxBuf.length + chunk.length);
+  merged.set(rxBuf); merged.set(chunk, rxBuf.length);
+  rxBuf = merged;
+
+  for (;;) {
+    if (rxBuf.length < 2) return;
+    const start = rxBuf[0];
+    let head, len;
+
+    if (start === 2)      { head = 2; len = rxBuf[1]; }
+    else if (start === 3) { if (rxBuf.length < 3) return; head = 3; len = (rxBuf[1] << 8) | rxBuf[2]; }
+    else                  { rxBuf = rxBuf.slice(1); continue; }   // resync
+
+    const total = head + len + 3;
+    if (rxBuf.length < total) return;
+
+    const payload = rxBuf.slice(head, head + len);
+    const crcGot  = (rxBuf[head + len] << 8) | rxBuf[head + len + 1];
+    const endByte = rxBuf[head + len + 2];
+
+    if (endByte === 3 && crcGot === crc16(payload)) {
+      rxBuf = rxBuf.slice(total);
+      handle(payload);
+    } else {
+      rxBuf = rxBuf.slice(1);   // bad frame, resync one byte at a time
+    }
+  }
+}
+
+function handle(payload) {
+  if (!payload.length) return;
+  const id = payload[0];
+  const body = payload.slice(1);
+
+  if (id === COMM_FW_VERSION) {
+    const major = body[0], minor = body[1];
+    let hw = "";
+    for (let i = 2; i < body.length && body[i] !== 0; i++) hw += String.fromCharCode(body[i]);
+    log("rx", `Firmware ${major}.${minor} on hardware "${hw}"`);
+    $("substate").textContent = `VESC ${major}.${minor} · ${hw}`;
+  }
+  else if (id === COMM_GET_VALUES) {
+    try { paintTelemetry(body); }
+    catch (err) { log("er", `Couldn't read telemetry frame: ${err.message}`); }
+  }
+  else if (id === COMM_NRF_START_PAIRING) {
+    const code = body.length ? body[0] : 0;
+    log("rx", `Pairing status ${code}`);
+    showPairResult(code);
+  }
+}
+
+/* ============================================================
+   Telemetry
+   ============================================================ */
+let lastVoltage = 0;
+
+function paintTelemetry(b) {
+  const c = new Cursor(b);
+  const tempFet   = c.f16(10);
+  const tempMotor = c.f16(10);
+  const curMotor  = c.f32(100);
+  const curInput  = c.f32(100);
+  c.f32(100); c.f32(100);              // avg id / iq — not shown
+  const duty      = c.f16(1000);
+  const rpm       = c.f32(1);
+  const voltage   = c.f16(10);
+  c.f32(10000);                        // amp hours used
+  c.f32(10000);                        // amp hours charged
+  const wattHours = c.f32(10000);
+  c.f32(10000);                        // watt hours charged
+  const tach      = c.i32();
+  c.i32();                             // tachometer absolute
+  const fault     = c.left >= 1 ? c.u8() : 0;
+
+  // A sane pack voltage is the cheapest proof we decoded the frame correctly.
+  if (voltage < 5 || voltage > 100) throw new Error(`implausible pack voltage ${voltage.toFixed(1)}V`);
+  lastVoltage = voltage;
+
+  set("t-volt", voltage.toFixed(1), "V");
+  set("t-rpm",  Math.round(Math.abs(rpm)).toLocaleString(), "erpm");
+  set("t-duty", Math.round(duty * 100), "%");
+  set("t-fet",  tempFet.toFixed(1), "°C");
+  set("t-mot",  tempMotor.toFixed(1), "°C");
+  set("t-cur",  curMotor.toFixed(1), "A");
+  set("t-bcur", curInput.toFixed(1), "A");
+  set("t-ah",   wattHours.toFixed(1), "Wh");
+  set("t-tach", Math.abs(Math.round(tach / 42)).toLocaleString(), "rev");
+
+  heat($("c-fet"), tempFet, 65, 80);
+  heat($("c-mot"), tempMotor, 70, 90);
+  paintBattery(voltage);
+
+  const chip = $("fault-chip");
+  if (fault === 0) { chip.className = "chip"; chip.textContent = "No faults"; }
+  else { chip.className = "chip bad"; chip.textContent = "Fault: " + (FAULTS[fault] || `code ${fault}`); }
+}
+
+function set(id, value, unit) {
+  $(id).innerHTML = "";
+  $(id).append(String(value));
+  if (unit) { const s = document.createElement("small"); s.textContent = unit; $(id).append(s); }
+}
+
+function heat(cell, temp, warnAt, badAt) {
+  cell.classList.toggle("warn", temp >= warnAt && temp < badAt);
+  cell.classList.toggle("bad",  temp >= badAt);
+}
+
+function paintBattery(voltage) {
+  let cells = parseInt($("cells").value, 10);
+  if (!cells) cells = Math.max(6, Math.min(20, Math.round(voltage / 3.8)));
+
+  const per = voltage / cells;
+  // Li-ion under light load: 3.3V empty, 4.15V full.
+  const pct = Math.max(0, Math.min(100, Math.round(((per - 3.3) / (4.15 - 3.3)) * 100)));
+
+  $("bat-pct").innerHTML = pct + '<small style="font-size:15px">%</small>';
+  $("bat-detail").textContent = `${cells}S · ${per.toFixed(2)}V per cell`;
+  const bar = $("bat-bar");
+  bar.style.width = pct + "%";
+  bar.style.background = pct <= 15 ? "var(--fault)" : pct <= 35 ? "var(--warn)" : "var(--ok)";
+}
+
+$("cells").addEventListener("change", () => { if (lastVoltage) paintBattery(lastVoltage); });
+
+/* ============================================================
+   Remote pairing
+   ============================================================ */
+const PAIR_MS = 10000;
+const RING_LEN = 2 * Math.PI * 16;
+
+function startPairing() {
+  $("pair-result").className = "result";
+  $("pair").disabled = true;
+  $("countdown").classList.add("on");
+
+  // COMM_NRF_START_PAIRING carries a big-endian int32 window length in ms.
+  const ms = PAIR_MS;
+  send([COMM_NRF_START_PAIRING, (ms >> 24) & 0xFF, (ms >> 16) & 0xFF, (ms >> 8) & 0xFF, ms & 0xFF]);
+  log("tx", `Asked the board for a ${ms / 1000}s pairing window`);
+
+  const started = Date.now();
+  $("ring").style.strokeDasharray = RING_LEN.toFixed(1);
+  pairTimer = setInterval(() => {
+    const left = Math.max(0, PAIR_MS - (Date.now() - started));
+    $("cd-num").textContent = Math.ceil(left / 1000) + "s";
+    $("ring").style.strokeDashoffset = (RING_LEN * (1 - left / PAIR_MS)).toFixed(1);
+    if (left <= 0) {
+      stopCountdown();
+      if (!$("pair-result").classList.contains("on")) {
+        showPairResult(2);
+        log("er", "Pairing window closed with no confirmation from the board");
+      }
+    }
+  }, 250);
+}
+
+function stopCountdown() {
+  clearInterval(pairTimer); pairTimer = null;
+  $("countdown").classList.remove("on");
+  $("pair").disabled = !txChar;
+}
+
+function showPairResult(code) {
+  // 0 = window opened; the real outcome arrives when the window closes.
+  if (code === 0) return;
+  stopCountdown();
+  const [title, detail] = NRF_PAIR_TEXT[code] || ["Unexpected reply", `The board answered with status ${code}.`];
+  const el = $("pair-result");
+  el.className = "result on " + (code === 1 ? "good" : "bad");
+  el.innerHTML = "";
+  const b = document.createElement("b"); b.textContent = title;
+  const s = document.createElement("span"); s.textContent = detail;
+  el.append(b, s);
+}
+
+/* ============================================================
+   Wiring
+   ============================================================ */
+$("connect").addEventListener("click", () => {
+  if (device && device.gatt && device.gatt.connected) disconnect();
+  else connect();
+});
+$("connect-any").addEventListener("click", () => connect(true));
+$("pair").addEventListener("click", startPairing);
+$("clear").addEventListener("click", () => { consoleEl.innerHTML = ""; logLines = []; });
+$("copy").addEventListener("click", async () => {
+  const btn = $("copy");
+  try {
+    await navigator.clipboard.writeText(logLines.join("\n"));
+    btn.textContent = "Copied";
+  } catch { btn.textContent = "Copy blocked — select the text instead"; }
+  setTimeout(() => { btn.textContent = "Copy log"; }, 2200);
+});
+
+log("t", "Boardlink ready" + (supported ? "" : " — but this browser has no Web Bluetooth"));
+</script>
+</body>
+</html>
