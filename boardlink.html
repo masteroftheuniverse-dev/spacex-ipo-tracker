@@ -317,7 +317,7 @@
       <li>Charge the remote fully first. The lightning-bolt icon <b>flashes while charging
           and goes solid when full</b> — allow 5–6 hours. A half-charged remote won't pair.</li>
       <li>Switch the remote <b>off</b>, connect to the board above, and stand near it.</li>
-      <li>Press <b>Start pairing</b>. The board opens a 10-second window.</li>
+      <li>Press <b>Start pairing</b>. The board opens a 30-second window.</li>
       <li>While the countdown runs, <b>switch the remote on</b>. Powering it up inside the
           window is what binds it — there is no separate pairing mode to hold down.</li>
     </ol>
@@ -331,7 +331,7 @@
                 stroke-dasharray="100.5" stroke-dashoffset="0"></circle>
       </svg>
       <div class="msg">
-        <b id="cd-num">10s</b>
+        <b id="cd-num">30s</b>
         <span>Pairing window open — switch the remote on now</span>
       </div>
     </div>
@@ -729,7 +729,8 @@ $("cells").addEventListener("change", () => { if (lastVoltage) paintBattery(last
 /* ============================================================
    Remote pairing
    ============================================================ */
-const PAIR_MS = 10000;
+const PAIR_MS  = 30000;   // long enough to hold the remote's power button and let it boot
+const GRACE_MS = 3000;    // let the board's own verdict land before calling it a failure
 const RING_LEN = 2 * Math.PI * 16;
 
 function startPairing() {
@@ -745,14 +746,17 @@ function startPairing() {
   const started = Date.now();
   $("ring").style.strokeDasharray = RING_LEN.toFixed(1);
   pairTimer = setInterval(() => {
-    const left = Math.max(0, PAIR_MS - (Date.now() - started));
-    $("cd-num").textContent = Math.ceil(left / 1000) + "s";
+    const elapsed = Date.now() - started;
+    const left = Math.max(0, PAIR_MS - elapsed);
+    $("cd-num").textContent = left > 0 ? Math.ceil(left / 1000) + "s" : "…";
     $("ring").style.strokeDashoffset = (RING_LEN * (1 - left / PAIR_MS)).toFixed(1);
-    if (left <= 0) {
+
+    // The board reports the real outcome itself; only give up once its reply is overdue.
+    if (elapsed >= PAIR_MS + GRACE_MS) {
       stopCountdown();
       if (!$("pair-result").classList.contains("on")) {
         showPairResult(2);
-        log("er", "Pairing window closed with no confirmation from the board");
+        log("er", "Pairing window closed with no reply from the board");
       }
     }
   }, 250);
