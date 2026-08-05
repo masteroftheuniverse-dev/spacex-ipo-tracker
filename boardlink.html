@@ -314,11 +314,12 @@
       <span class="eyebrow">Command 37</span>
     </div>
     <ol class="steps">
-      <li>Connect to the board above, and stand near it.</li>
-      <li>Press <b>Start pairing</b> here. The board opens a 10-second pairing window.</li>
-      <li>While the window is open, put the remote in pairing mode: hold its
-          <b>power button</b> until the LED blinks rapidly.</li>
-      <li>The remote's LED goes solid when it's bound to the board.</li>
+      <li>Charge the remote fully first. The lightning-bolt icon <b>flashes while charging
+          and goes solid when full</b> — allow 5–6 hours. A half-charged remote won't pair.</li>
+      <li>Switch the remote <b>off</b>, connect to the board above, and stand near it.</li>
+      <li>Press <b>Start pairing</b>. The board opens a 10-second window.</li>
+      <li>While the countdown runs, <b>switch the remote on</b>. Powering it up inside the
+          window is what binds it — there is no separate pairing mode to hold down.</li>
     </ol>
 
     <button class="btn-primary btn-big" id="pair" disabled>Start pairing</button>
@@ -331,7 +332,7 @@
       </svg>
       <div class="msg">
         <b id="cd-num">10s</b>
-        <span>Pairing window open — put the remote in pairing mode now</span>
+        <span>Pairing window open — switch the remote on now</span>
       </div>
     </div>
 
@@ -405,9 +406,9 @@ const COMM_GET_VALUES        = 4;
 const COMM_NRF_START_PAIRING = 37;
 
 const NRF_PAIR_TEXT = {
-  0: ["Pairing window open", "The board is listening. Put the remote in pairing mode now."],
+  0: ["Pairing window open", "The board is listening. Switch the remote on now."],
   1: ["Remote paired", "The board accepted the remote. Test the throttle with the wheels off the ground."],
-  2: ["Pairing failed", "The board closed the window without hearing a remote. Try again and start the remote's pairing mode sooner."]
+  2: ["Pairing failed", "The board closed the window without hearing a remote. Check the remote is fully charged, then try again and switch it on the moment the countdown starts."]
 };
 
 const FAULTS = ["NONE","OVER_VOLTAGE","UNDER_VOLTAGE","DRV","ABS_OVER_CURRENT",
